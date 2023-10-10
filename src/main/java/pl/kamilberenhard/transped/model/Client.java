@@ -2,6 +2,8 @@ package pl.kamilberenhard.transped.model;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 @Table(name = "Clients")
 public class Client {
@@ -18,6 +20,9 @@ public class Client {
 
     private String postalCode;
 
+    @OneToMany
+    @JoinColumn(name = "clientId")
+    private List<Parcel> parcel;
 
     public long getId() {
         return id;
@@ -57,5 +62,13 @@ public class Client {
 
     public void setPostalCode(String postalCode) {
         this.postalCode = postalCode;
+    }
+
+    public List<Parcel> getParcel() {
+        return parcel;
+    }
+
+    public void setParcel(List<Parcel> parcel) {
+        this.parcel = parcel;
     }
 }
