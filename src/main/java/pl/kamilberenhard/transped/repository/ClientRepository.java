@@ -1,4 +1,4 @@
-package pl.kamilberenhard.transped.model.repository;
+package pl.kamilberenhard.transped.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;

@@ -1,8 +1,8 @@
-package pl.kamilberenhard.transped.model.controller;
+package pl.kamilberenhard.transped.controller;
 
 import org.springframework.web.bind.annotation.*;
 import pl.kamilberenhard.transped.model.Client;
-import pl.kamilberenhard.transped.model.service.ClientService;
+import pl.kamilberenhard.transped.service.ClientService;
 
 import java.util.List;
 

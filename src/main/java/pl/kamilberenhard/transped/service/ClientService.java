@@ -1,9 +1,9 @@
-package pl.kamilberenhard.transped.model.service;
+package pl.kamilberenhard.transped.service;
 
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import pl.kamilberenhard.transped.model.Client;
-import pl.kamilberenhard.transped.model.repository.ClientRepository;
+import pl.kamilberenhard.transped.repository.ClientRepository;
 
 import java.util.List;
 
