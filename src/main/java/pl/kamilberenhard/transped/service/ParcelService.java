@@ -23,4 +23,8 @@ public class ParcelService {
         return parcelRepository.findById(id)
                 .orElseThrow();
     }
+
+    public Parcel addParcel(Parcel parcel) {
+        return parcelRepository.save(parcel);
+    }
 }

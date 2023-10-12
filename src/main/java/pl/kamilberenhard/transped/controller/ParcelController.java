@@ -1,8 +1,7 @@
 package pl.kamilberenhard.transped.controller;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 import pl.kamilberenhard.transped.model.Parcel;
 import pl.kamilberenhard.transped.service.ParcelService;
 
@@ -25,5 +24,10 @@ public class ParcelController {
     @GetMapping("/parcels/{id}")
     public Parcel getSingleParcel(@PathVariable Long id) {
         return parcelService.getSingleParcel(id);
+    }
+
+    @PostMapping("/parcels")
+    public Parcel addParcel(@RequestBody Parcel parcel) {
+        return parcelService.addParcel(parcel);
     }
 }
