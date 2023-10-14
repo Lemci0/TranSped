@@ -15,6 +15,7 @@ public class ParcelService {
         this.parcelRepository = parcelRepository;
     }
 
+
     public List<Parcel> getParcels() {
         return parcelRepository.findAll();
     }
@@ -25,6 +26,7 @@ public class ParcelService {
     }
 
     public Parcel addParcel(Parcel parcel) {
+        parcel.calculatePalletSpace();
         return parcelRepository.save(parcel);
     }
 }

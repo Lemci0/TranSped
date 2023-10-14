@@ -35,13 +35,17 @@ public class Parcel {
 
     private float length;
 
-    @Column
-    @Formula("width * length")
+    @Transient
     private float palletSpace;
 
     private boolean priority;
 
     private Date postageDate;
+
+    public void calculatePalletSpace() {
+        this.palletSpace = width * length;
+    }
+
 
     public long getNumber() {
         return number;
