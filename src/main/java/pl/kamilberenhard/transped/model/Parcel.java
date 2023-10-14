@@ -1,8 +1,8 @@
 package pl.kamilberenhard.transped.model;
 
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
-import org.hibernate.annotations.Formula;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Parameter;
 
@@ -39,6 +39,7 @@ public class Parcel {
 
     private boolean priority;
 
+    @JsonFormat(pattern = "dd/MM/yyyy")
     private Date postageDate;
 
     @PrePersist
