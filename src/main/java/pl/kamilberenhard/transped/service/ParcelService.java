@@ -1,6 +1,7 @@
 package pl.kamilberenhard.transped.service;
 
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import pl.kamilberenhard.transped.model.Parcel;
 import pl.kamilberenhard.transped.repository.ParcelRepository;
 
@@ -26,7 +27,21 @@ public class ParcelService {
     }
 
     public Parcel addParcel(Parcel parcel) {
-        parcel.calculatePalletSpace();
         return parcelRepository.save(parcel);
+    }
+
+    @Transactional
+    public Parcel editParcel(Parcel parcel) {
+        Parcel editedParcel = parcelRepository.findById(parcel.getNumber()).orElseThrow();
+        editedParcel.setDeliveryStreet(parcel.getDeliveryStreet());
+        editedParcel.setDeliveryCity(parcel.getDeliveryCity());
+        editedParcel.setDeliveryPostalCode(parcel.getDeliveryPostalCode());
+        editedParcel.setLength(parcel.getLength());
+        editedParcel.setWidth(parcel.getWidth());
+        return editedParcel;
+    }
+
+    public void deleteParcel(Long id) {
+        parcelRepository.deleteById(id);
     }
 }

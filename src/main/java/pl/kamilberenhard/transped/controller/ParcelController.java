@@ -30,4 +30,14 @@ public class ParcelController {
     public Parcel addParcel(@RequestBody Parcel parcel) {
         return parcelService.addParcel(parcel);
     }
+
+    @PutMapping("/parcels")
+    public Parcel editParcel(@RequestBody Parcel parcel) {
+        return parcelService.editParcel(parcel);
+    }
+
+    @DeleteMapping("parcels/{id}")
+    public void deleteParcel(@PathVariable Long id) {
+        parcelService.deleteParcel(id);
+    }
 }

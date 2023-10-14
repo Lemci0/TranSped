@@ -35,13 +35,13 @@ public class Parcel {
 
     private float length;
 
-    @Transient
     private float palletSpace;
 
     private boolean priority;
 
     private Date postageDate;
 
+    @PrePersist
     public void calculatePalletSpace() {
         this.palletSpace = width * length;
     }
@@ -107,7 +107,7 @@ public class Parcel {
         return palletSpace;
     }
 
-    public void setPalletSpace() {
+    public void setPalletSpace(float palletSpace) {
         this.palletSpace = palletSpace;
     }
 
