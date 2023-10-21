@@ -2,6 +2,7 @@ package pl.kamilberenhard.transped.model;
 
 import jakarta.persistence.*;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @Entity
@@ -11,6 +12,9 @@ public class Delivery {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long deliveryId;
+
+    @Basic
+    private LocalDate creationDate;
 
     @ManyToOne
     @JoinColumn(name = "driverId")
@@ -25,6 +29,10 @@ public class Delivery {
 
     public void setDeliveryId(long deliveryId) {
         this.deliveryId = deliveryId;
+    }
+
+    public LocalDate getCreationDate() {
+        return creationDate;
     }
 
     public Driver getDriver() {

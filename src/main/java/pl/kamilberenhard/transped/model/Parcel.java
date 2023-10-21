@@ -1,13 +1,13 @@
 package pl.kamilberenhard.transped.model;
 
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Parameter;
 
-import java.util.Date;
+import java.time.LocalDate;
+
 
 @Entity
 @Table(name = "Parcels")
@@ -45,8 +45,8 @@ public class Parcel {
 
     private boolean priority;
 
-    @JsonFormat(pattern = "dd/MM/yyyy")
-    private Date postageDate;
+    @Basic
+    private LocalDate postageDate;
 
     @PrePersist
     public void calculatePalletSpace() {
@@ -134,11 +134,7 @@ public class Parcel {
         this.priority = priority;
     }
 
-    public Date getPostageDate() {
+    public LocalDate getPostageDate() {
         return postageDate;
-    }
-
-    public void setPostageDate(Date postageDate) {
-        this.postageDate = postageDate;
     }
 }
