@@ -1,8 +1,9 @@
 package pl.kamilberenhard.transped.model;
 
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
-import org.hibernate.annotations.Formula;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Parameter;
 
@@ -25,6 +26,11 @@ public class Parcel {
 
     private long clientId;
 
+    @JsonIgnore
+    @ManyToOne(optional = true)
+    @JoinColumn(name = "deliveryId")
+    private Delivery delivery;
+
     private String deliveryStreet;
 
     private String deliveryCity;
@@ -39,6 +45,7 @@ public class Parcel {
 
     private boolean priority;
 
+    @JsonFormat(pattern = "dd/MM/yyyy")
     private Date postageDate;
 
     @PrePersist
@@ -61,6 +68,14 @@ public class Parcel {
 
     public void setClientId(long clientId) {
         this.clientId = clientId;
+    }
+
+    public Delivery getDelivery() {
+        return delivery;
+    }
+
+    public void setDelivery(Delivery delivery) {
+        this.delivery = delivery;
     }
 
     public String getDeliveryStreet() {

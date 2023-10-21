@@ -1,5 +1,6 @@
 package pl.kamilberenhard.transped.service;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import pl.kamilberenhard.transped.model.Client;
@@ -10,11 +11,8 @@ import java.util.List;
 @Service
 public class ClientService {
 
+    @Autowired
     private ClientRepository clientRepository;
-
-    public ClientService(ClientRepository clientRepository) {
-        this.clientRepository = clientRepository;
-    }
 
     public List<Client> getClients() {
         return clientRepository.findAll();
