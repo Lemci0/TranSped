@@ -18,13 +18,23 @@ public class DeliveryController {
         return deliveryService.getDeliveries();
     }
 
-    @PostMapping(value = "/deliveries")
+    @PostMapping("/deliveries")
     public Delivery addDelivery(@RequestBody Delivery delivery) {
         return deliveryService.addDelivery(delivery);
+    }
+
+    @DeleteMapping("/deliveries/{id}")
+    public void deleteDelivery(@PathVariable long id) {
+        deliveryService.deleteDelivery(id);
     }
 
     @PostMapping("/addParcelToDelivery")
     public void addParcelToDelivery(@RequestParam long parcelId, @RequestParam long deliveryId) {
         deliveryService.addParcelToDelivery(parcelId, deliveryId);
+    }
+
+    @DeleteMapping("/deleteParcelFromDelivery")
+    public void deleteParcelFromDelivery(@RequestParam long parcelId, @RequestParam long deliveryId) {
+        deliveryService.deleteParcelFromDelivery(parcelId, deliveryId);
     }
 }
