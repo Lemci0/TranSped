@@ -1,5 +1,6 @@
 package pl.kamilberenhard.transped.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import pl.kamilberenhard.transped.model.Driver;
 import pl.kamilberenhard.transped.service.DriverService;
@@ -9,11 +10,8 @@ import java.util.List;
 @RestController
 public class DriverController {
 
+    @Autowired
     private DriverService driverService;
-
-    public DriverController(DriverService driverService) {
-        this.driverService = driverService;
-    }
 
     @GetMapping("/drivers")
     public List<Driver> getDrivers() {

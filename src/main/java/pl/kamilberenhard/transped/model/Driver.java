@@ -8,7 +8,7 @@ public class Driver {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private long driverId;
 
     private String firstName;
 
@@ -16,12 +16,12 @@ public class Driver {
 
     private float truckVolume;
 
-    public long getId() {
-        return id;
+    public long getDriverId() {
+        return driverId;
     }
 
-    public void setId(long id) {
-        this.id = id;
+    public void setDriverId(long driverId) {
+        this.driverId = driverId;
     }
 
     public String getFirstName() {

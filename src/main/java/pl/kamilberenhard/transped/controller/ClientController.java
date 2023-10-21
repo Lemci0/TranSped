@@ -1,5 +1,6 @@
 package pl.kamilberenhard.transped.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import pl.kamilberenhard.transped.model.Client;
 import pl.kamilberenhard.transped.service.ClientService;
@@ -9,11 +10,8 @@ import java.util.List;
 @RestController
 public class ClientController {
 
+    @Autowired
     private ClientService clientService;
-
-    public ClientController(ClientService clientService) {
-        this.clientService = clientService;
-    }
 
     @GetMapping("/clients")
     public List<Client> getClients() {

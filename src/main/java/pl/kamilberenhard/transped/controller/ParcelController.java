@@ -1,5 +1,6 @@
 package pl.kamilberenhard.transped.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import pl.kamilberenhard.transped.model.Parcel;
@@ -10,11 +11,8 @@ import java.util.List;
 @RestController
 public class ParcelController {
 
+    @Autowired
     private ParcelService parcelService;
-
-    public ParcelController(ParcelService parcelService) {
-        this.parcelService = parcelService;
-    }
 
     @GetMapping("/parcels")
     public List<Parcel> getParcels() {

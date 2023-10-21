@@ -1,5 +1,6 @@
 package pl.kamilberenhard.transped.service;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import pl.kamilberenhard.transped.model.Driver;
@@ -10,11 +11,8 @@ import java.util.List;
 @Service
 public class DriverService {
 
+    @Autowired
     private DriverRepository driverRepository;
-
-    public DriverService(DriverRepository driverRepository) {
-        this.driverRepository = driverRepository;
-    }
 
     public List<Driver> getDrivers() {
         return driverRepository.findAll();
@@ -30,7 +28,7 @@ public class DriverService {
 
     @Transactional
     public Driver editDriver(Driver driver) {
-        Driver editedDriver = driverRepository.findById(driver.getId()).orElseThrow();
+        Driver editedDriver = driverRepository.findById(driver.getDriverId()).orElseThrow();
         editedDriver.setFirstName(driver.getFirstName());
         editedDriver.setLastName(driver.getLastName());
         editedDriver.setTruckVolume(driver.getTruckVolume());
