@@ -1,10 +1,12 @@
 package pl.kamilberenhard.transped;
 
+import jakarta.transaction.TransactionScoped;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.transaction.annotation.Transactional;
 import pl.kamilberenhard.transped.model.Role;
 import pl.kamilberenhard.transped.model.User;
 import pl.kamilberenhard.transped.repository.RoleRepository;
@@ -21,6 +23,7 @@ public class TranSpedApplication {
 	}
 
 	@Bean
+	@Transactional
 	CommandLineRunner run(RoleRepository roleRepository, UserRepository userRepository, PasswordEncoder passwordEncode){
 		return args ->{
 			if(roleRepository.findById(1).isPresent()) return;

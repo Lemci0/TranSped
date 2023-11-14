@@ -1,5 +1,6 @@
 package pl.kamilberenhard.transped.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -14,10 +15,11 @@ public class User implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int userId;
-
+    @Column(unique = true)
     private String username;
     private String firstName;
     private String lastName;
+    @JsonIgnore
     private String password;
 
     @ManyToMany(fetch = FetchType.EAGER)
