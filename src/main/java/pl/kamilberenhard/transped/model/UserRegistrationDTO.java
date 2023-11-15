@@ -2,24 +2,24 @@ package pl.kamilberenhard.transped.model;
 
 public class UserRegistrationDTO {
 
-    private String Username;
+    private String username;
     private String firstName;
     private String lastName;
     private String password;
 
     public UserRegistrationDTO(String username, String firstName, String lastName, String password) {
-        Username = username;
+        this.username = username;
         this.firstName = firstName;
         this.lastName = lastName;
         this.password = password;
     }
 
     public String getUsername() {
-        return Username;
+        return username;
     }
 
     public void setUsername(String username) {
-        Username = username;
+        this.username = username;
     }
 
     public String getFirstName() {
