@@ -28,12 +28,12 @@ public class DeliveryController {
         deliveryService.deleteDelivery(id);
     }
 
-    @PostMapping("/addParcelToDelivery")
+    @PostMapping("/deliveries/addParcelToDelivery")
     public void addParcelToDelivery(@RequestParam long parcelId, @RequestParam long deliveryId) {
         deliveryService.addParcelToDelivery(parcelId, deliveryId);
     }
 
-    @DeleteMapping("/deleteParcelFromDelivery")
+    @DeleteMapping("/deliveries/deleteParcelFromDelivery")
     public void deleteParcelFromDelivery(@RequestParam long parcelId, @RequestParam long deliveryId) {
         deliveryService.deleteParcelFromDelivery(parcelId, deliveryId);
     }
