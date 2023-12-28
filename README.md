@@ -5,7 +5,7 @@ TranSped is a REST API for Spedition Company.
 
 ## Demo
 
-[Link](http://16.171.235.79/swagger-ui/index.html#/)
+[Link](http://16.171.235.79/swagger-ui/index.html#/) (currently disabled)
 
 
 ## Deployment
